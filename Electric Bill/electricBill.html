@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Electric Bill</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./electric.css">
+  </head>
+  <body>
+    <h1 class="text-center">TÍNH TIỀN ĐIỆN</h1>
+    <div class="main">
+        <div class="form-group item">
+          <h3>Họ và tên KH</h3>
+          <input type="text"
+            class="form-control" name="" id="nameData" aria-describedby="helpId" placeholder="Họ và tên">
+          <small class="form-text"></small>
+          <h3>Điện năng tiêu thụ</h3>
+          <input type="text"
+            class="form-control" name="" id="powerData" aria-describedby="helpId" placeholder="KW/h">
+          <small class="form-text"></small>
+        </div>
+        <div class="item">
+            <div class="btn">
+                <a name="" id="" onclick="calculate()" class="btn btn-primary" role="button">Tính tiền điện</a>
+            </div>
+            <div class="result">
+                <p class="result__item">Tiền điện: <span class="feeID">0</span>VNĐ</p>
+                <p class="result__item">Thuế: <span class="taxID">0</span>VNĐ</p>
+                <p class="result__item">Tổng tiền: <span class="TotalID">0</span>VNĐ</p>
+            </div>
+            <div class="send">
+                <div class="btn">
+                    <a name="" id="" class="btn btn-primary" role="button" onclick="showMailto()">
+                        <i class="fa fa-envelope"></i>
+                    </a>
+                </div>
+                <div class="btn">
+                    <a name="" id="" class="btn btn-primary" role="button" onclick="showBill()">
+                        <i class="fa fa-print"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="popupBill">
+        <div class="content">
+            <i class="fa fa-times" onclick="closePopup()"></i>
+            <div class="mailto">
+                <h6>Nhập địa chỉ email KH</h6>
+                <div class="form-input">
+                    <input type="text"
+                    class="form-control" name="" id="emailData" aria-describedby="helpId" placeholder="email">
+                    <div class="butn">
+                    <a name="" id="" class="btn btn-primary" role="button" onclick="sendtoMail()">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+                
+            </div>
+            <div class="printto">
+                <h6 class="text-center">Hóa đơn tiền điện</h6>
+                <ul>
+                    <li>
+                        <p>Tên KH: <span class="nameResult"></span></p>
+                    </li>
+                    <li>
+                        <p>Tổng điện năng tiêu thụ: <span class="KWH">0</span>KW/h</p>
+                    </li>
+                    <li style="padding: 0 10px;">
+                        <p class="first">SHBT KT: 500*<span class="KW"></span>=<span class="feeResult">0</span> VNĐ</p>
+                        <p class="first">SHBT KT: 650*<span class="KW"></span>=<span class="feeResult">0</span> VNĐ</p>
+                        <p class="first">SHBT KT: 850*<span class="KW"></span>=<span class="feeResult">0</span> VNĐ</p>
+                        <p class="first">SHBT KT: 1100*<span class="KW"></span>=<span class="feeResult">0</span> VNĐ</p>
+                        <p class="first">SHBT KT: 1300*<span class="KW"></span>=<span class="feeResult">0</span> VNĐ</p>
+                    </li>
+                    <li>
+                        <p>Tiền điện: <span class="EfeeResult">0</span> VNĐ</p>
+                    </li>
+                    <li>
+                        <p>Tiền thuế: <span class="TaxResult">0</span> VNĐ</p>
+                    </li>
+                    <hr>
+                    <li>
+                        <p>Tổng tiền: <span class="totalBill">0</span> VNĐ</p>
+                    </li>
+                </ul>
+            </div>
+        </div>    
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="./electricBill.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+  </body>
+</html>

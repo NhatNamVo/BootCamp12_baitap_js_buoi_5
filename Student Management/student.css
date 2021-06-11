@@ -1,0 +1,153 @@
+.main{
+    position: relative;
+    width: 80%;
+    height: max-content;
+    margin: auto;
+}
+.content{
+    width: 80%;
+    margin: auto;
+    border-radius: 20px;
+    padding: 15px 5px;
+    box-shadow: 0px 2px 12px 3px #b9b3b9;
+    height: max-content;
+    transform: rotateY(0);
+    opacity: 1;
+    transition:
+        transform 1s,
+        opacity 1.2s;
+}
+.content-move{
+    background-color: antiquewhite;
+    transform: translateZ(-10px) rotateX(60deg) rotateZ(29deg) rotateY(-180deg);
+    transform-style: preserve-3d;
+    height: 500px;
+    transition:
+        transform 1s;
+}
+.content-move>div, .content-move hr{
+    opacity: 0;
+}
+.standard{
+    width: 80%;
+    margin: auto;
+}
+.info{
+    width: 80%;
+    margin: auto;
+    padding: 20px 0;
+}
+.grade , .selectForm{
+    width: 40%;
+}
+.grade label{
+    padding: 5px 0;
+}
+.selectForm{
+    margin-top: 60px;
+}
+.result{
+    width: 80%;
+    margin: auto;
+}
+.item{
+    margin-bottom: 20px;
+}
+/*.item:last-child{
+    margin-top: 15px;
+}
+.item h5{
+    margin-bottom: 35px;
+} */
+.resultText{
+    font-size: 20px;
+    font-weight: bold;
+}
+.result{
+    vertical-align: middle;
+    font-size: 20px;
+}
+.btn{
+   width: 100%; 
+   display: flex;
+   justify-content: space-between;
+}
+.btn a{
+    display: block;
+    width: 40%;
+}
+.content-info{
+    position: absolute;
+    top: 0;
+    left: 10%;
+    padding: 15px 0;
+    height: 500px;
+    width: 80%;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    box-shadow: 0px 2px 12px 3px #b9b3b9;
+    overflow-y: scroll;
+    transform: translateZ(-10px) rotateX(60deg) rotateZ(29deg) rotateY(-180deg);
+    z-index: -1;
+    transition:
+        transform 1s,
+        opacity 1.2s;
+}
+.content-info-show{
+    transform: rotateY(0deg);
+    z-index: 2;
+    background-color: transparent;
+    transition:
+        transform 1s;
+}
+.icon-close{
+    display: block;
+    width: 27.5px;
+    height: 40px;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    font-size: 40px;
+    transition: transform .3s;
+}
+.icon-close:hover {
+    transform: scale(0.8);
+}
+.content-info-show h3.text-title, .content-info-show .text-content, .content-info-show .icon-close{
+    opacity: 1;
+}
+h3.text-title{
+    text-align: center;
+}
+h3.text-title , .text-content, .icon-close{
+    opacity: 0;
+}
+.content-info::-webkit-scrollbar{
+    display: none;
+}
+.table{
+    width: 50%;
+    text-align: center;
+    margin: 5px 20px 0;
+    border: 1px solid black;
+}
+.table-light tbody+tbody, .table-light td, .table-light th, .table-light thead th{
+    border-color: black;
+}
+.text-content{
+    width: 90%;
+    margin: auto;
+    padding-left: 50px;
+}
+ul{
+    text-decoration: none;
+}
+li{
+    padding: 5px 0;
+}
+li p{
+    padding: 5px 0;
+}
+.noteID{
+    color: red;
+}

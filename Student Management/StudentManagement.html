@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Student Management</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./student.css">
+    </head>
+  <body>
+    <h1 class="text-center">Quản Lý Tuyển Sinh</h1>
+    <div class="main">
+        <div class="form-group content">
+            <div class="standard">
+                <h5>Điểm chuẩn</h5>
+                <input type="text"
+              class="form-control" name="" id="targetID" aria-describedby="helpId" placeholder="Nhập điểm chuẩn">
+              <small class="noteID"></small>   
+            </div>
+            <div class="info row justify-content-between">
+                <div class="grade">
+                    <h5>Điểm 3 môn thi</h5>
+                    <label for="">Điểm môn 1</label>
+                <input type="text"
+                  class="form-control" name="" id="diem1ID" aria-describedby="helpId" placeholder="Điểm số">
+                  <small class="noteID"></small> <br>
+                  <label for="">Điểm môn 2</label>
+                <input type="text"
+                  class="form-control" name="" id="diem2ID" aria-describedby="helpId" placeholder="Điểm số">
+                  <small class="noteID"></small> <br>
+                  <label for="">Điểm môn 3</label>
+                <input type="text"
+                  class="form-control" name="" id="diem3ID" aria-describedby="helpId" placeholder="Điểm số">
+                  <small class="noteID"></small> 
+                </div>
+                <div class="selectForm">
+                    <div class="item">
+                        <h5>Chọn khu vực ưu tiên</h5>
+                        <select class="form-control" name="" id="AreaID">
+                            <option value="0">X-Khu vực không ưu tiên</option>
+                            <option value="2">Khu vực ưu tiên A</option>
+                            <option value="1">Khu vực ưu tiên B</option>
+                            <option value="0.5">Khu vực ưu tiên C</option>
+                     </select>
+                    </div>
+                    <div class="item">
+                        <h5>Chọn đối tượng ưu tiên</h5>
+                        <select class="form-control" name="" id="ObjectID">
+                            <option value="0">Không ưu tiên</option>
+                            <option value="2.5">Ưu tiên loại 1</option>
+                            <option value="1.5">Ưu tiên loại 2</option>
+                            <option value="1">Ưu tiên loại 3</option>
+                     </select>
+                    </div>
+                    <div class="btn">
+                        <a name="" id="resultbtn" class="btn btn-primary" role="button" onclick="calculate()">Kết quả</a>
+                        <a name="" id="descbtn" class="btn btn-primary" role="button" onclick="changeTag()">Thông tin</a>
+                    </div>
+                    
+                </div>
+            </div>
+            <hr>
+            <div class="result row justify-content-around">
+                <p class="resultGrade">Tổng điểm: <span class="sumGrade"></span></p>
+                <p class="resultText"></p>
+            </div>    
+        </div>
+        <div class="content-info">
+            <h3 class="text-title">Thông tin</h3>
+            <div class="text-content">
+                <p>Để tra cứu kết quả tuyển sinh. Xin hãy thực hiện theo các bước sau:</p>
+                <ul class="">
+                    <li>Bước 1: Nhập điểm chuẩn</li>
+                    <li>Bước 2: Nhập số điểm 3 môn của thí sinh</li>
+                    <li>Bước 3: Chọn vùng ưu tiên
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th colspan="3">KHU VỰC</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-light">
+                                <tr>
+                                    <td>A</td>
+                                    <td>B</td>
+                                    <td>C</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>0.5</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Chú ý: Không thuộc khu vực ưu tiên: điểm cộng bằng 0</p>
+                    </li>
+                    <li>Bước 4: Chọn đối tượng ưu tiên
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th colspan="3">ĐỐI TƯỢNG</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-light">
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>2.5</td>
+                                    <td>1.5</td>
+                                    <td>1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Chú ý: Đối tượng không nằm trong diện ưu tiên thì điểm cộng là 0</p>
+                    </li>
+                </ul>
+                <p>Note: Một thí sinh trúng tuyển nếu có điểm tổng lớn hơn hoặc bằng với điểm chuẩn. và không có môn nào điểm 0</p>
+            </div>
+
+            <i class="fa fa-times icon-close" onclick="closeinfo()"></i>
+        </div>
+    </div>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="./student.js"></script>
+    </body>
+</html>
